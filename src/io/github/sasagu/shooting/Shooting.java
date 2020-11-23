@@ -34,7 +34,7 @@ public class Shooting {
         loop = true;
 
         Graphics gra = shootingFrame.panel.image.getGraphics();
- 
+
         //FPS
         long startTime;
         long fpsTime = 0;
@@ -55,10 +55,10 @@ public class Shooting {
         ArrayList<Bullet> bullets_enemy = new ArrayList<>();
         ArrayList<Enemy> enemies = new ArrayList<>();
         Random random = new Random();
-        
+
 
         while(loop) {
-        	
+
             if((System.currentTimeMillis() - fpsTime) >= 1000) {
                 fpsTime = System.currentTimeMillis();
                 FPS = FPSCount;
@@ -86,7 +86,7 @@ public class Shooting {
                     gra.drawOval(400, 360, 50, 50);
                     gra.setColor(Color.BLUE);
                     gra.drawOval(50,160,60,60);
-				
+
 				try {
 					br = new java.io.BufferedReader(new java.io.FileReader("score.txt"));
 				} catch (FileNotFoundException e1) {
@@ -94,7 +94,7 @@ public class Shooting {
 					gra.drawString("HighScore:0", (metrics.stringWidth("HighScore:0"))/2, 180);
 					new File("score.txt");
 				}
-				
+
 				if(br!=null) {
 					try {
 						gra.drawString("HighScore:"+br.readLine(),250 - (metrics.stringWidth("HighScore:???") /2),180);
@@ -226,7 +226,7 @@ public class Shooting {
                     java.io.BufferedReader br1 = null;
                     int backscore = 0;
                     try {
-					
+
                     	fr = new java.io.FileReader("score.txt");
                     	br1 = new java.io.BufferedReader(fr);
                     	backscore = Integer.parseInt(br1.readLine());
@@ -235,15 +235,15 @@ public class Shooting {
                     	// TODO Auto-generated catch block
                     	e1.printStackTrace();
                     }
-		    
-		    
+
+
 				    if(score>backscore){
 				    	try {
 				    		java.io.FileWriter fw = new java.io.FileWriter("score.txt");
 				    		fw.write(String.valueOf(score));
 				    		fw.close();
 				    	}catch (IOException e) {
-				    		JOptionPane.showMessageDialog(shootingFrame, "ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½BFƒnƒCƒXƒRƒA‚ğ•Û‘¶o—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+				    		JOptionPane.showMessageDialog(shootingFrame, "ãƒã‚¤ã‚¹ã‚³ã‚¢ã®ä¿å­˜ã«å¤±æ•—ã—ã¾ã—ãŸ");
 				    	}
 				    }
 		                    gra.drawString("Score:"+score, 250 - (metrics.stringWidth("Score:"+score) / 2), 150);
@@ -271,21 +271,21 @@ public class Shooting {
         }
 	}
 	public static Clip createClip(File path) {
-		//w’è‚³‚ê‚½URL‚ÌƒI[ƒfƒBƒI“ü—ÍƒXƒgƒŠ[ƒ€‚ğæ“¾
+		//ï¿½wï¿½è‚³ï¿½ê‚½URLï¿½ÌƒIï¿½[ï¿½fï¿½Bï¿½Iï¿½ï¿½ï¿½ÍƒXï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		try (AudioInputStream ais = AudioSystem.getAudioInputStream(path)){
-			
-			//ƒtƒ@ƒCƒ‹‚ÌŒ`®æ“¾
+
+			//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÌŒ`ï¿½ï¿½ï¿½æ“¾
 			AudioFormat af = ais.getFormat();
-			
-			//’Pˆê‚ÌƒI[ƒfƒBƒIŒ`®‚ğŠÜ‚Şw’è‚µ‚½î•ñ‚©‚çƒf[ƒ^ƒ‰ƒCƒ“‚Ìî•ñƒIƒuƒWƒFƒNƒg‚ğ\’z
+
+			//ï¿½Pï¿½ï¿½ï¿½ÌƒIï¿½[ï¿½fï¿½Bï¿½Iï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Şwï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ñ‚©‚ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½\ï¿½z
 			DataLine.Info dataLine = new DataLine.Info(Clip.class,af);
-			
-			//w’è‚³‚ê‚½ Line.Info ƒIƒuƒWƒFƒNƒg‚Ì‹Lq‚Éˆê’v‚·‚éƒ‰ƒCƒ“‚ğæ“¾
+
+			//ï¿½wï¿½è‚³ï¿½ê‚½ Line.Info ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ì‹Lï¿½qï¿½Éˆï¿½ï¿½vï¿½ï¿½ï¿½éƒ‰ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 			Clip c = (Clip)AudioSystem.getLine(dataLine);
-			
-			//Ä¶€”õŠ®—¹
+
+			//ï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			c.open(ais);
-			
+
 			return c;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
