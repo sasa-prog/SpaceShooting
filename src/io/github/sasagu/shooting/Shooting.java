@@ -243,7 +243,7 @@ public class Shooting {
 				    		fw.write(String.valueOf(score));
 				    		fw.close();
 				    	}catch (IOException e) {
-				    		JOptionPane.showMessageDialog(shootingFrame, "ハイスコアの保存に失敗しました");
+				    		JOptionPane.showMessageDialog(shootingFrame, "エラー：ハイスコアの保存に失敗しました。");
 				    	}
 				    }
 		                    gra.drawString("Score:"+score, 250 - (metrics.stringWidth("Score:"+score) / 2), 150);
