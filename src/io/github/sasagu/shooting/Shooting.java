@@ -97,7 +97,9 @@ public class Shooting {
 
 				if(br!=null) {
 					try {
-						gra.drawString("HighScore:"+br.readLine(),250 - (metrics.stringWidth("HighScore:???") /2),180);
+						int highscore = br.readLine();
+						highscore = highscore >> 2;
+						gra.drawString("HighScore:"+highscore,250 - (metrics.stringWidth("HighScore:???") /2),180);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -240,6 +242,7 @@ public class Shooting {
 				    if(score>backscore){
 				    	try {
 				    		java.io.FileWriter fw = new java.io.FileWriter("score.txt");
+								score = score << 2;
 				    		fw.write(String.valueOf(score));
 				    		fw.close();
 				    	}catch (IOException e) {
